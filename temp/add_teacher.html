@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> O'qituvchi qo'shish sahifasiga hush kelibsiz</h1>
+<center>
+<form action="{% url 'ssss' %}" method="post">
+    {% csrf_token %}
+    <label>Ism</label>
+    <input type="text" name="ism" placeholder="Ismni kiriting"><br><br>
+    <label>Familya</label>
+    <input type="text" name="fam" placeholder="Familyani kiriting"><br><br>
+    <label>Yosh</label>
+    <input type="number" name="age" placeholder="Yoshni kiriting"><br><br>
+    <label>Sana</label>
+    <input type="date" name="kun"><br><br>
+    <label>Fan</label>
+    <select name="fan">
+        {% for fan in fans %}
+        <option value="{{fan.id}}">{{fan.nomi}}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <button type="submit">Saqlash</button>
+
+
+
+</form>
+     </center>
+</body>
+</html>

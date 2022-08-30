@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Update sahifasiga hush kelibsiz</h1>
+<center>
+<form action="{% url 'ssss' %}" method="post">
+    {% csrf_token %}
+    <label>Ism</label>
+    <input type="text" name="ism" value="{{teach.ism}}" placeholder="Ismni kiriting"><br><br>
+    <label>Familya</label>
+    <input type="text" name="fam" value="{{teach.fam}}" placeholder="Familyani kiriting"><br><br>
+    <label>Yosh</label>
+    <input type="number" name="age" value="{{teach.yosh}}" placeholder="Yoshni kiriting"><br><br>
+    <label>Sana</label>
+    <input type="date" value="{{teach.sana}}" name="kun"><br><br>
+    <label>Fan</label>
+    <select name="fan">
+        {% for fan in fans %}
+        {% if teach.fan.id == fan.id %}
+            <option value="{{fan.id}}" selected>{{fan.nomi}}</option>
+        {% else %}
+            <option value="{{fan.id}}">{{fan.nomi}}</option>
+        {% endif %}
+        {% endfor %}
+    </select><br><br>
+    <input type="number" value="{{teach.id}}" name="idd" hidden>
+
+    <button type="submit">Saqlash</button>
+
+
+
+</form>
+     </center>
+</body>
+</html>

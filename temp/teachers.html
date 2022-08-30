@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="background-color:green;">
+<h1>O'qituvchilar sahifasiga hush kelibsiz</h1>
+<a href="{% url 'adding_t' %}"> O'qituvchi qo'shish</a>
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Ism</th>
+      <th scope="col">Familya</th>
+      <th scope="col">Yosh</th>
+      <th scope="col">Fan</th>
+      <th scope="col">Sana</th>
+       <th scope="col">Delete</th>
+      <th scope="col">Update</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for oqituvchi in techs %}
+    <tr>
+      <th scope="row">{{oqituvchi.id}}</th>
+      <td>{{oqituvchi.ism}}</td>
+      <td>{{oqituvchi.fam}}</td>
+      <td>{{oqituvchi.yosh}}</td>
+      <td>{{oqituvchi.fan}}</td>
+      <td>{{oqituvchi.sana}}</td>
+      <td><a href="{% url 'delete' oqituvchi.id %}" class="btn btn-danger">Delete</a></td>
+      <td><a href="{% url 'update' oqituvchi.id %}" class="btn btn-success">Update</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>
